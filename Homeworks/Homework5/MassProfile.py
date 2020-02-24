@@ -1,7 +1,7 @@
 
 #HOMEWORK #5 
 #Ryan Webster
-#Collaborators: Mackenzie James
+#Collaborators: Mackenzie James, Jimmy Lilly, Sean Cunningham
 
 
 #Importing modules
