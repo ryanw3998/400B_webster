@@ -184,8 +184,8 @@ orbit.OrbitIntegration(0,0.1,10)
 data = np.loadtxt(file)
 last = len(data)-1 #Getting rid of last row in data, it was all zeros
 #Calculating magnitude of distance vector between M33 and M31
-mag_r = np.sqrt(data[:last,1]**2+data[:last,2]**2,data[:last,3]**2)
-mag_v = np.sqrt(data[:last,4]**2+data[:last,5]**2,data[:last,6]**2)
+mag_r = np.sqrt(data[:last,1]**2+data[:last,2]**2+data[:last,3]**2)
+mag_v = np.sqrt(data[:last,4]**2+data[:last,5]**2+data[:last,6]**2)
 
 #Reading in Orbit data from assignment 6
 M31_data = np.genfromtxt("Orbit_M31.txt",dtype=None,names=True)
