@@ -117,15 +117,17 @@ for  i, snap_id in enumerate(snap_ids):
     MWM33COM_M33_rj = com2.JacobiRadius(MWM33COM_M33_sep,MWM33COM_M33_mencl,M_encl_tot*1e10*u.Msun)
     print('MWM33COM_M33_rj',MWM33COM_M33_rj)
 
+    # Finding smallest jacobi radius to select stream stars
     r_jacobi = np.min((MW_M33_rj,M31_M33_rj,MWM33COM_M33_rj))*u.kpc
     print('Minimum Jacobi Radius', r_jacobi)
 
+    # Saving jacobi radii to r_jacobi_array for later analysis
     r_jacobi_array[i,0] = MW_M33_rj[0].value
     r_jacobi_array[i,1] = M31_M33_rj[0].value
     r_jacobi_array[i,2] = MWM33COM_M33_rj[0].value
     r_jacobi_array[i,3] = r_jacobi.value
 
-    # #Centering M33 particles in array to apply Jacobi radius conditional     
+    # Centering M33 particles in array to apply Jacobi radius conditional     
     M33_part_x = COM_M33.x - POS_M33[0].value # disk particles
     M33_part_y = COM_M33.y - POS_M33[1].value
     M33_part_z = COM_M33.z - POS_M33[2].value
@@ -161,7 +163,7 @@ for  i, snap_id in enumerate(snap_ids):
     np.savetxt(path, data, fmt = "%11.4f"*8, comments='#',
                header="{:>10s}{:>11s}{:>11s}{:>11s}{:>11s}{:>11s}{:>11s}{:>11s}"\
                       .format('t', 'm', 'x', 'y', 'z', 'vx', 'vy', 'vz'))
-  
+
     # Centering simulation on Andromeda
     xstream_cen = stream_x-POS_M31[0].value
     ystream_cen = stream_y-POS_M31[1].value
